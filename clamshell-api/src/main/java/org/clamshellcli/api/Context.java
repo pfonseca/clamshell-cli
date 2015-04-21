@@ -103,6 +103,11 @@ public interface Context{
     public static final String KEY_ERROR_STREAM = "key.ErrorStream";
     
     /**
+     * pwd directory
+     */
+    public static final String KEY_PWD = "key.PWD";
+    
+    /**
      * Returns the context's store copy of it's internal map.
      * @return Map<String, ? extends Object>
      */
@@ -217,4 +222,5 @@ public interface Context{
      * @return Map<String, Command> where Command.Descriptor.getName() is the key. 
      */
     public Map<String,Command> mapCommands(List<Command> commands);
+    
 }

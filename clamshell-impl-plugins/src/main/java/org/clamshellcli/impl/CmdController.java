@@ -61,7 +61,7 @@ public class CmdController extends AnInputController{
     private static String DEFAULT_NAMESPACE="syscmd";
     
     private Map<String,Command> commands;
-    private String respondsToRegEx = "(.*)\\b"; 
+    private String respondsToRegEx = "(.*)"; 
     private Pattern respondsTo = Pattern.compile(respondsToRegEx);
     
     public CmdController() {}

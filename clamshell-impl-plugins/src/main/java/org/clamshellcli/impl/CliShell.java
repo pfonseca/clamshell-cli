@@ -104,6 +104,7 @@ public class CliShell implements Shell{
         context.putValue(Context.KEY_INPUT_STREAM, System.in);
         context.putValue(Context.KEY_OUTPUT_STREAM, System.out);
         context.putValue(Context.KEY_ERROR_STREAM, System.err);
+        context.putValue(Context.KEY_PWD, System.getProperty("user.dir"));
         
         List<IOConsole> consoles = context.getPluginsByType(IOConsole.class);
         console = (consoles.size() > 0) ? consoles.get(0) : new CliConsole();
