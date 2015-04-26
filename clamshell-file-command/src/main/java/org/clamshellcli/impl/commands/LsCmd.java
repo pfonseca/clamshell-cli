@@ -69,17 +69,16 @@ public class LsCmd implements Command {
 	public Object execute(Context ctx) {
 		IOConsole ioConsole = ctx.getIoConsole();
 		
-		
 		String[] args = (String[]) ctx.getValue(Context.KEY_COMMAND_LINE_ARGS);
+		
+		if(args == null)
+			args = new String[0];
 		
         try{
     		CdParams object = new CdParams();
     		JCommander jCommander = new JCommander(object, args);
     		
-    		
     		List<String> params = object.folder;
-    		
-    		
     		
     		File f=null;
     		
@@ -91,11 +90,7 @@ public class LsCmd implements Command {
     		
     		if(f.exists()){
     			for(File file:f.listFiles()){
-    				if(file.isFile()){
-    					ioConsole.println(file.getName());
-    				}else{
-    					ioConsole.println("["+file.getName()+"]");
-    				}
+    				ioConsole.println(FileUtils.printFile(file));
     			}
     		}else{
     			ioConsole.println("Folder not found");
